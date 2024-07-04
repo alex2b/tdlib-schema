@@ -165,6 +165,7 @@ module TD::Types
       'message'                                         => 'Message',
       'messages'                                        => 'Messages',
       'foundMessages'                                   => 'FoundMessages',
+      'forwardSource'                                   => 'ForwardSource',
       'messagePosition'                                 => 'MessagePosition',
       'messagePositions'                                => 'MessagePositions',
       'messageCalendarDay'                              => 'MessageCalendarDay',
@@ -1186,6 +1187,7 @@ module TD::Types
     file_type
     formatted_text
     found_messages
+    forward_source
     game
     game_high_score
     game_high_scores
