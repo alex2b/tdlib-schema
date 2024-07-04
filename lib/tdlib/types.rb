@@ -470,12 +470,16 @@ module TD::Types
       'textEntityTypeTextUrl'                           => 'TextEntityType::TextUrl',
       'textEntityTypeMentionName'                       => 'TextEntityType::MentionName',
       'textEntityTypeMediaTimestamp'                    => 'TextEntityType::MediaTimestamp',
+      'textEntityTypeBlockQuote'                        => 'TextEntityType::BlockQuote',
+      'textQuote'                                       => 'TextQuote',
       'inputThumbnail'                                  => 'InputThumbnail',
       'MessageSchedulingState'                          => 'MessageSchedulingState',
       'messageSchedulingStateSendAtDate'                => 'MessageSchedulingState::SendAtDate',
       'messageSchedulingStateSendWhenOnline'            => 'MessageSchedulingState::SendWhenOnline',
       'messageSendOptions'                              => 'MessageSendOptions',
       'messageCopyOptions'                              => 'MessageCopyOptions',
+      'messageReplyToMessage'                           => 'MessageReplyTo::Message',
+      'messageReplyToStory'                             => 'MessageReplyTo::Story',
       'InputMessageContent'                             => 'InputMessageContent',
       'inputMessageText'                                => 'InputMessageContent::Text',
       'inputMessageAnimation'                           => 'InputMessageContent::Animation',
@@ -1036,7 +1040,8 @@ module TD::Types
       'logStreamFile'                                   => 'LogStream::File',
       'logStreamEmpty'                                  => 'LogStream::Empty',
       'logVerbosityLevel'                               => 'LogVerbosityLevel',
-      'logTags'                                         => 'LogTags'
+      'logTags'                                         => 'LogTags',
+      'linkPreviewOptions'                              => 'LinkPreviewOptions'
   }.freeze
   
   module_function
@@ -1262,6 +1267,7 @@ module TD::Types
     message_thread_info
     messages
     message_origin
+    message_reply_to
     minithumbnail
     network_statistics
     network_statistics_entry
@@ -1357,6 +1363,7 @@ module TD::Types
     text_entity
     text_entity_type
     text_parse_mode
+    text_quote
     theme_settings
     thumbnail
     thumbnail_format
@@ -1381,6 +1388,7 @@ module TD::Types
     voice_note
     web_page
     web_page_instant_view
+    link_preview_options
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end
