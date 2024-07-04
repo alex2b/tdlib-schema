@@ -31,16 +31,8 @@ module TD::Types
   # @attr forward_info [TD::Types::MessageForwardInfo, nil] Information about the initial message sender; may be null.
   # @attr interaction_info [TD::Types::MessageInteractionInfo, nil] Information about interactions with the message;
   #   may be null.
-  # @attr reply_in_chat_id [Integer] If non-zero, the identifier of the chat to which the replied message belongs;
-  #   Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id.
-  # @attr reply_to_message_id [Integer] If non-zero, the identifier of the message this message is replying to; can be
-  #   the identifier of a deleted message.
   # @attr message_thread_id [Integer] If non-zero, the identifier of the message thread the message belongs to; unique
   #   within the chat to which the message belongs.
-  # @attr ttl [Integer] For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none.
-  #   TDLib will send {TD::Types::Update::DeleteMessages} or {TD::Types::Update::MessageContent} once the TTL expires.
-  # @attr ttl_expires_in [Float] Time left before the message expires, in seconds.
-  #   If the TTL timer isn't started yet, equals to the value of the ttl field.
   # @attr via_bot_user_id [Integer] If non-zero, the user identifier of the bot through which this message was sent.
   # @attr author_signature [TD::Types::String, nil] For channel posts and anonymous group messages, optional author
   #   signature.
@@ -52,7 +44,7 @@ module TD::Types
   # @attr reply_markup [TD::Types::ReplyMarkup, nil] Reply markup for the message; may be null.
   class Message < Base
     attribute :id, TD::Types::Coercible::Integer
-    attribute :sender, TD::Types::MessageSender
+    attribute :sender_id, TD::Types::MessageSender
     attribute :chat_id, TD::Types::Coercible::Integer
     attribute :sending_state, TD::Types::MessageSendingState.optional.default(nil)
     attribute :scheduling_state, TD::Types::MessageSchedulingState.optional.default(nil)
@@ -73,11 +65,7 @@ module TD::Types
     attribute :edit_date, TD::Types::Coercible::Integer
     attribute :forward_info, TD::Types::MessageForwardInfo.optional.default(nil)
     attribute :interaction_info, TD::Types::MessageInteractionInfo.optional.default(nil)
-    attribute :reply_in_chat_id, TD::Types::Coercible::Integer
-    attribute :reply_to_message_id, TD::Types::Coercible::Integer
     attribute :message_thread_id, TD::Types::Coercible::Integer
-    attribute :ttl, TD::Types::Coercible::Integer
-    attribute :ttl_expires_in, TD::Types::Coercible::Float
     attribute :via_bot_user_id, TD::Types::Coercible::Integer
     attribute :author_signature, TD::Types::String.optional.default(nil)
     attribute :media_album_id, TD::Types::Coercible::Integer
@@ -86,3 +74,21 @@ module TD::Types
     attribute :reply_markup, TD::Types::ReplyMarkup.optional.default(nil)
   end
 end
+
+# TODO: add those new attributes
+# is_from_offline
+# can_be_replied_in_another_chat
+# can_be_saved
+# can_get_read_date
+# can_report_reactions
+# is_topic_message
+# unread_reactions
+# fact_check
+# reply_to
+# saved_messages_topic_id
+# self_destruct_type ?
+# self_destruct_in
+# auto_delete_in
+# via_bot_user_id
+# sender_business_bot_user_id
+# effect_id
