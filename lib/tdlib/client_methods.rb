@@ -5112,8 +5112,7 @@ module TD::ClientMethods
   # @param parameters [TD::Types::TdlibParameters] Parameters for TDLib initialization.
   # @return [TD::Types::Ok]
   def set_tdlib_parameters(parameters:)
-    broadcast('@type'      => 'setTdlibParameters',
-              'parameters' => parameters)
+    broadcast(parameters.merge('@type' => 'setTdlibParameters'))
   end
   
   # Changes user privacy settings.
