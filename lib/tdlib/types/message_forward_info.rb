@@ -9,7 +9,7 @@ module TD::Types
   class MessageForwardInfo < Base
     attribute :origin, TD::Types::MessageOrigin
     attribute :date, TD::Types::Coercible::Integer
-    attribute :source, TD::Types::ForwardSource
+    attribute :source, TD::Types::ForwardSource.optional.default(nil)
     attribute :public_service_announcement_type, TD::Types::String
   end
 end

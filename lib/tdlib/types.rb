@@ -451,6 +451,8 @@ module TD::Types
       'messageOrigin'                                   => 'MessageOrigin',
       'messageOriginUser'                               => 'MessageOrigin::User',
       'messageOriginChannel'                            => 'MessageOrigin::Channel',
+      'messageOriginChat'                               => 'MessageOrigin::Chat',
+      'messageOriginHiddenUser'                         => 'MessageOrigin::HiddenUser',
       'TextEntityType'                                  => 'TextEntityType',
       'textEntityTypeMention'                           => 'TextEntityType::Mention',
       'textEntityTypeHashtag'                           => 'TextEntityType::Hashtag',
@@ -1027,12 +1029,16 @@ module TD::Types
       'updateNewInlineCallbackQuery'                    => 'Update::NewInlineCallbackQuery',
       'updateNewShippingQuery'                          => 'Update::NewShippingQuery',
       'updateNewPreCheckoutQuery'                       => 'Update::NewPreCheckoutQuery',
+      'updateChatAddedToList'                           => 'Update::ChatAddedToList',
       'updateNewCustomEvent'                            => 'Update::NewCustomEvent',
       'updateNewCustomQuery'                            => 'Update::NewCustomQuery',
       'updatePoll'                                      => 'Update::Poll',
       'updatePollAnswer'                                => 'Update::PollAnswer',
       'updateChatMember'                                => 'Update::ChatMember',
       'updateNewChatJoinRequest'                        => 'Update::NewChatJoinRequest',
+      'updateChatAction'                                => 'Update::ChatAction',
+      'updateSpeechRecognitionTrial'                    => 'Update:SpeechRecognitionTrial',
+      'updateAttachmentMenuBots'                        => 'Update::AttachmentMenuBots',
       'updates'                                         => 'Updates',
       'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
@@ -1041,7 +1047,9 @@ module TD::Types
       'logStreamEmpty'                                  => 'LogStream::Empty',
       'logVerbosityLevel'                               => 'LogVerbosityLevel',
       'logTags'                                         => 'LogTags',
-      'linkPreviewOptions'                              => 'LinkPreviewOptions'
+      'linkPreviewOptions'                              => 'LinkPreviewOptions',
+      'attachmentMenuBot'                               => 'AttachmentMenuBot',
+      'attachmentMenuBotColor'                          => 'AttachmentMenuBotColor'
   }.freeze
   
   module_function
@@ -1389,6 +1397,8 @@ module TD::Types
     web_page
     web_page_instant_view
     link_preview_options
+    attachment_menu_bot
+    attachment_menu_bot_color
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end

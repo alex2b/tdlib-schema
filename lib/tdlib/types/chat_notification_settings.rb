@@ -23,7 +23,7 @@ module TD::Types
     attribute :use_default_mute_for, TD::Types::Bool
     attribute :mute_for, TD::Types::Coercible::Integer
     attribute :use_default_sound, TD::Types::Bool
-    attribute :sound, TD::Types::String
+    attribute :sound_id, TD::Types::Coercible::Integer
     attribute :use_default_show_preview, TD::Types::Bool
     attribute :show_preview, TD::Types::Bool
     attribute :use_default_disable_pinned_message_notifications, TD::Types::Bool

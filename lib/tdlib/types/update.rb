@@ -3,6 +3,9 @@ module TD::Types
   class Update < Base
     %w[
       authorization_state
+      attachment_menu_bot
+      attachment_menu_bot_color
+      attachment_menu_bots
       new_message
       message_send_acknowledged
       message_send_succeeded
@@ -15,6 +18,8 @@ module TD::Types
       message_mention_read
       message_live_location_viewed
       new_chat
+      chat_action
+      chat_added_to_list
       chat_title
       chat_photo
       chat_permissions
@@ -92,6 +97,7 @@ module TD::Types
       poll_answer
       chat_member
       new_chat_join_request
+      speech_recognition_trial
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

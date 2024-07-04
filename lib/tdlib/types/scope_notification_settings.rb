@@ -11,7 +11,7 @@ module TD::Types
   #   for an ordinary unread message.
   class ScopeNotificationSettings < Base
     attribute :mute_for, TD::Types::Coercible::Integer
-    attribute :sound, TD::Types::String
+    attribute :sound_id, TD::Types::Coercible::Integer
     attribute :show_preview, TD::Types::Bool
     attribute :disable_pinned_message_notifications, TD::Types::Bool
     attribute :disable_mention_notifications, TD::Types::Bool
