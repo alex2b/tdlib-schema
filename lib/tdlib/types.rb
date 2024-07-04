@@ -447,6 +447,9 @@ module TD::Types
       'messagePassportDataReceived'                     => 'MessageContent::PassportDataReceived',
       'messageProximityAlertTriggered'                  => 'MessageContent::ProximityAlertTriggered',
       'messageUnsupported'                              => 'MessageContent::Unsupported',
+      'messageOrigin'                                   => 'MessageOrigin',
+      'messageOriginUser'                               => 'MessageOrigin::User',
+      'messageOriginChannel'                            => 'MessageOrigin::Channel',
       'TextEntityType'                                  => 'TextEntityType',
       'textEntityTypeMention'                           => 'TextEntityType::Mention',
       'textEntityTypeHashtag'                           => 'TextEntityType::Hashtag',
@@ -1256,6 +1259,7 @@ module TD::Types
     message_statistics
     message_thread_info
     messages
+    message_origin
     minithumbnail
     network_statistics
     network_statistics_entry
