@@ -4,7 +4,6 @@ module TD::Types
   # @attr id [Integer] User identifier.
   # @attr first_name [TD::Types::String] First name of the user.
   # @attr last_name [TD::Types::String] Last name of the user.
-  # @attr username [TD::Types::String] Username of the user.
   # @attr phone_number [TD::Types::String] Phone number of the user.
   # @attr status [TD::Types::UserStatus] Current online status of the user.
   # @attr profile_photo [TD::Types::ProfilePhoto, nil] Profile photo of the user; may be null.
@@ -26,7 +25,7 @@ module TD::Types
     attribute :id, TD::Types::Coercible::Integer
     attribute :first_name, TD::Types::String
     attribute :last_name, TD::Types::String
-    attribute :username, TD::Types::String
+    attribute :usernames, TD::Types::Usernames.optional.default(nil)
     attribute :phone_number, TD::Types::String
     attribute :status, TD::Types::UserStatus
     attribute :profile_photo, TD::Types::ProfilePhoto.optional.default(nil)

@@ -1026,6 +1026,7 @@ module TD::Types
       'updateChatMember'                                => 'Update::ChatMember',
       'updateNewChatJoinRequest'                        => 'Update::NewChatJoinRequest',
       'updates'                                         => 'Updates',
+      'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
       'logStreamDefault'                                => 'LogStream::Default',
       'logStreamFile'                                   => 'LogStream::File',
@@ -1357,6 +1358,7 @@ module TD::Types
     update
     updates
     user
+    usernames
     user_full_info
     user_privacy_setting
     user_privacy_setting_rule

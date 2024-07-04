@@ -6,7 +6,7 @@ module TD::Types
   # Unlike supergroups, channels can have an unlimited number of subscribers.
   #
   # @attr id [Integer] Supergroup or channel identifier.
-  # @attr username [TD::Types::String, nil] Username of the supergroup or channel; empty for private supergroups or
+  # ! @attr username [TD::Types::String, nil] Username of the supergroup or channel; empty for private supergroups or
   #   channels.
   # @attr date [Integer] Point in time (Unix timestamp) when the current user joined, or the point in time when the
   #   supergroup or channel was created, in case the user is not a member.
@@ -33,7 +33,7 @@ module TD::Types
   # @attr is_fake [Boolean] True, if many users reported this supergroup or channel as a fake account.
   class Supergroup < Base
     attribute :id, TD::Types::Coercible::Integer
-    attribute :username, TD::Types::String.optional.default(nil)
+    attribute :usernames, TD::Types::Usernames.optional.default(nil)
     attribute :date, TD::Types::Coercible::Integer
     attribute :status, TD::Types::ChatMemberStatus
     attribute :member_count, TD::Types::Coercible::Integer
