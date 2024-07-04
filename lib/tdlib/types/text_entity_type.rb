@@ -20,6 +20,7 @@ module TD::Types
       text_url
       mention_name
       media_timestamp
+      block_quote
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/text_entity_type/#{type}"
     end
