@@ -550,6 +550,7 @@ module TD::Types
       'stickerSet'                                      => 'StickerSet',
       'stickerSetInfo'                                  => 'StickerSetInfo',
       'stickerSets'                                     => 'StickerSets',
+      'StickerFormat'                                   => 'StickerFormat',
       'CallDiscardReason'                               => 'CallDiscardReason',
       'callDiscardReasonEmpty'                          => 'CallDiscardReason::Empty',
       'callDiscardReasonMissed'                         => 'CallDiscardReason::Missed',
