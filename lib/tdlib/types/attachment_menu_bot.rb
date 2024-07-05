@@ -20,8 +20,8 @@ module TD::Types
     attribute :android_icon, TD::Types::File.optional.default(nil)
     attribute :android_side_menu_icon, TD::Types::File.optional.default(nil)
     attribute :macos_icon, TD::Types::File.optional.default(nil)
-    attribute : macos_side_menu_icon, TD::Types::File.optional.default(nil)
+    attribute :macos_side_menu_icon, TD::Types::File.optional.default(nil)
     attribute :icon_color, TD::Types::AttachmentMenuBotColor.optional.default(nil)
-    attribute: web_app_placeholder, TD::Types::File.optional.default(nil)
+    attribute :web_app_placeholder, TD::Types::File.optional.default(nil)
   end
 end

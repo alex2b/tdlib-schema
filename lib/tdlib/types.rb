@@ -14,6 +14,7 @@ module TD::Types
       'authenticationCodeTypeCall'                      => 'AuthenticationCodeType::Call',
       'authenticationCodeTypeFlashCall'                 => 'AuthenticationCodeType::FlashCall',
       'authenticationCodeInfo'                          => 'AuthenticationCodeInfo',
+      'accentColor'                                     => 'AccentColor',
       'emailAddressAuthenticationCodeInfo'              => 'EmailAddressAuthenticationCodeInfo',
       'textEntity'                                      => 'TextEntity',
       'textEntities'                                    => 'TextEntities',
@@ -453,6 +454,7 @@ module TD::Types
       'messageOriginChannel'                            => 'MessageOrigin::Channel',
       'messageOriginChat'                               => 'MessageOrigin::Chat',
       'messageOriginHiddenUser'                         => 'MessageOrigin::HiddenUser',
+      'messageReaction'                                 => 'MessageReaction',
       'TextEntityType'                                  => 'TextEntityType',
       'textEntityTypeMention'                           => 'TextEntityType::Mention',
       'textEntityTypeHashtag'                           => 'TextEntityType::Hashtag',
@@ -473,6 +475,7 @@ module TD::Types
       'textEntityTypeMentionName'                       => 'TextEntityType::MentionName',
       'textEntityTypeMediaTimestamp'                    => 'TextEntityType::MediaTimestamp',
       'textEntityTypeBlockQuote'                        => 'TextEntityType::BlockQuote',
+      'textEntityTypeCustomEmoji'                       => 'TextEntityType::CustomEmoji',
       'textQuote'                                       => 'TextQuote',
       'inputThumbnail'                                  => 'InputThumbnail',
       'MessageSchedulingState'                          => 'MessageSchedulingState',
@@ -902,6 +905,7 @@ module TD::Types
       'suggestedActionCheckPhoneNumber'                 => 'SuggestedAction::CheckPhoneNumber',
       'suggestedActionSeeTicksHint'                     => 'SuggestedAction::SeeTicksHint',
       'suggestedActionConvertToBroadcastGroup'          => 'SuggestedAction::ConvertToBroadcastGroup',
+      'suggestedActionSetPassword'                      => 'SuggestedAction::SetPassword',
       'count'                                           => 'Count',
       'text'                                            => 'Text',
       'seconds'                                         => 'Seconds',
@@ -931,6 +935,8 @@ module TD::Types
       'ChatStatistics'                                  => 'ChatStatistics',
       'chatStatisticsSupergroup'                        => 'ChatStatistics::Supergroup',
       'chatStatisticsChannel'                           => 'ChatStatistics::Channel',
+      'chatFolderIcon'                                  => 'ChatFolderIcon',
+      'chatFolderInfo'                                  => 'ChatFolderInfo',
       'messageStatistics'                               => 'MessageStatistics',
       'point'                                           => 'Point',
       'VectorPathCommand'                               => 'VectorPathCommand',
@@ -1015,6 +1021,7 @@ module TD::Types
       'updateSavedAnimations'                           => 'Update::SavedAnimations',
       'updateSelectedBackground'                        => 'Update::SelectedBackground',
       'updateChatThemes'                                => 'Update::ChatThemes',
+      'updateChatFolders'                               => 'Update::ChatFolders',
       'updateLanguagePackStrings'                       => 'Update::LanguagePackStrings',
       'updateConnectionState'                           => 'Update::ConnectionState',
       'updateTermsOfService'                            => 'Update::TermsOfService',
@@ -1037,8 +1044,16 @@ module TD::Types
       'updateChatMember'                                => 'Update::ChatMember',
       'updateNewChatJoinRequest'                        => 'Update::NewChatJoinRequest',
       'updateChatAction'                                => 'Update::ChatAction',
-      'updateSpeechRecognitionTrial'                    => 'Update:SpeechRecognitionTrial',
+      'updateSpeechRecognitionTrial'                    => 'Update::SpeechRecognitionTrial',
       'updateAttachmentMenuBots'                        => 'Update::AttachmentMenuBots',
+      'updateDefaultBackground'                         => 'Update::DefaultBackground',
+      'updateFileDownloads'                             => 'Update::FileDownloads',
+      'updateAvailableMessageEffects'                   => 'Update::AvailableMessageEffects',
+      'updateStoryStealthMode'                          => 'Update::StoryStealthMode',
+      'updateActiveEmojiReactions'                      => 'Update::ActiveEmojiReactions',
+      'updateDefaultReactionType'                       => 'Update::DefaultReactionType',
+      'updateAccentColors'                              => 'Update::AccentColors',
+      'updateProfileAccentColors'                       => 'Update::ProfileAccentColors',
       'updates'                                         => 'Updates',
       'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
@@ -1049,7 +1064,15 @@ module TD::Types
       'logTags'                                         => 'LogTags',
       'linkPreviewOptions'                              => 'LinkPreviewOptions',
       'attachmentMenuBot'                               => 'AttachmentMenuBot',
-      'attachmentMenuBotColor'                          => 'AttachmentMenuBotColor'
+      'attachmentMenuBotColor'                          => 'AttachmentMenuBotColor',
+      'reactionTypeEmoji'                               => 'ReactionType::Emoji',
+      'profileAccentColor'                              => 'ProfileAccentColor',
+      'profileAccentColors'                             => 'ProfileAccentColors',
+      'emojiStatus'                                     => 'EmojiStatus',
+      'ReactionNotificationSource'                      => 'ReactionNotificationSource',
+      'reactionNotificationSourceAll'                   => 'ReactionNotificationSource::All',
+      'reactionNotificationSourceContacts'              => 'ReactionNotificationSource::Contacts',
+      'reactionNotificationSourceNone'                  => 'ReactionNotificationSource::None'
   }.freeze
   
   module_function
@@ -1100,6 +1123,7 @@ module TD::Types
     authorization_state
     auto_download_settings
     auto_download_settings_presets
+    accent_color
     background
     background_fill
     background_type
@@ -1134,6 +1158,8 @@ module TD::Types
     chat_events
     chat_filter
     chat_filter_info
+    chat_folder_icon
+    chat_folder_info
     chat_invite_link
     chat_invite_link_count
     chat_invite_link_counts
@@ -1192,6 +1218,7 @@ module TD::Types
     draft_message
     email_address_authentication_code_info
     emojis
+    emoji_status
     encrypted_credentials
     encrypted_passport_element
     error
@@ -1321,6 +1348,8 @@ module TD::Types
     poll_option
     poll_type
     profile_photo
+    profile_accent_colors
+    profile_accent_color
     proxies
     proxy
     proxy_type
@@ -1399,6 +1428,8 @@ module TD::Types
     link_preview_options
     attachment_menu_bot
     attachment_menu_bot_color
+    reaction_type
+    message_reaction
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end

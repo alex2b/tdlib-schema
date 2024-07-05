@@ -6,6 +6,8 @@ module TD::Types
       attachment_menu_bot
       attachment_menu_bot_color
       attachment_menu_bots
+      available_message_effects
+      active_emoji_reactions
       new_message
       message_send_acknowledged
       message_send_succeeded
@@ -36,6 +38,7 @@ module TD::Types
       chat_notification_settings
       scope_notification_settings
       chat_message_ttl_setting
+      chat_folders
       chat_action_bar
       chat_theme
       chat_pending_join_requests
@@ -98,6 +101,12 @@ module TD::Types
       chat_member
       new_chat_join_request
       speech_recognition_trial
+      default_background
+      file_downloads
+      story_stealth_mode
+      default_reaction_type
+      accent_colors
+      profile_accent_colors
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

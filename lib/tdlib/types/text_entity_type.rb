@@ -21,6 +21,7 @@ module TD::Types
       mention_name
       media_timestamp
       block_quote
+      custom_emoji
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/text_entity_type/#{type}"
     end

@@ -7,6 +7,7 @@ module TD::Types
       check_phone_number
       see_ticks_hint
       convert_to_broadcast_group
+      set_password
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/suggested_action/#{type}"
     end
