@@ -81,6 +81,9 @@ module TD::Types
       'poll'                                            => 'Poll',
       'profilePhoto'                                    => 'ProfilePhoto',
       'chatPhotoInfo'                                   => 'ChatPhotoInfo',
+      'chatAvailableReactions'                          => 'ChatAvailableReactions',
+      'chatAvailableReactionsAll'                       => 'ChatAvailableReactions::All',
+      'chatAvailableReactionsSome'                      => 'ChatAvailableReactions::Some',
       'UserType'                                        => 'UserType',
       'userTypeRegular'                                 => 'UserType::Regular',
       'userTypeDeleted'                                 => 'UserType::Deleted',
@@ -455,6 +458,7 @@ module TD::Types
       'messageOriginChat'                               => 'MessageOrigin::Chat',
       'messageOriginHiddenUser'                         => 'MessageOrigin::HiddenUser',
       'messageReaction'                                 => 'MessageReaction',
+      'messageReactions'                                => 'MessageReactions',
       'TextEntityType'                                  => 'TextEntityType',
       'textEntityTypeMention'                           => 'TextEntityType::Mention',
       'textEntityTypeHashtag'                           => 'TextEntityType::Hashtag',
@@ -670,6 +674,7 @@ module TD::Types
       'chatEvent'                                       => 'ChatEvent',
       'chatEvents'                                      => 'ChatEvents',
       'chatEventLogFilters'                             => 'ChatEventLogFilters',
+      'chatBackground'                                  => 'ChatBackground',
       'LanguagePackStringValue'                         => 'LanguagePackStringValue',
       'languagePackStringValueOrdinary'                 => 'LanguagePackStringValue::Ordinary',
       'languagePackStringValuePluralized'               => 'LanguagePackStringValue::Pluralized',
@@ -1073,7 +1078,9 @@ module TD::Types
       'ReactionNotificationSource'                      => 'ReactionNotificationSource',
       'reactionNotificationSourceAll'                   => 'ReactionNotificationSource::All',
       'reactionNotificationSourceContacts'              => 'ReactionNotificationSource::Contacts',
-      'reactionNotificationSourceNone'                  => 'ReactionNotificationSource::None'
+      'reactionNotificationSourceNone'                  => 'ReactionNotificationSource::None',
+      'businessBotManageBar'                            => 'BusinessBotManageBar',
+      'blockList'                                       => 'BlockList'
   }.freeze
   
   module_function
@@ -1137,6 +1144,8 @@ module TD::Types
     bot_command
     bot_command_scope
     bot_commands
+    block_list
+    business_bot_manage_bar
     call
     call_discard_reason
     call_id
@@ -1151,8 +1160,10 @@ module TD::Types
     chat
     chat_action
     chat_action_bar
+    chat_available_reactions
     chat_administrator
     chat_administrators
+    chat_background
     chat_event
     chat_event_action
     chat_event_log_filters
@@ -1431,6 +1442,7 @@ module TD::Types
     attachment_menu_bot_color
     reaction_type
     message_reaction
+    message_reactions
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end
