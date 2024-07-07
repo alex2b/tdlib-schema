@@ -1,5 +1,5 @@
 module TD::Types
   class ReactionType::CustomEmoji < ReactionType
-    attribute :emoji, TD::Types::Coercible::Integer
+    attribute :custom_emoji_id, TD::Types::Coercible::Integer
   end
 end

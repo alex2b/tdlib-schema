@@ -122,6 +122,7 @@ module TD::Types
       'chatMembersFilterRestricted'                     => 'ChatMembersFilter::Restricted',
       'chatMembersFilterBanned'                         => 'ChatMembersFilter::Banned',
       'chatMembersFilterBots'                           => 'ChatMembersFilter::Bots',
+      'chatAdministratorRights'                         => 'ChatAdministratorRights',
       'SupergroupMembersFilter'                         => 'SupergroupMembersFilter',
       'supergroupMembersFilterRecent'                   => 'SupergroupMembersFilter::Recent',
       'supergroupMembersFilterContacts'                 => 'SupergroupMembersFilter::Contacts',
@@ -418,6 +419,7 @@ module TD::Types
       'messageVenue'                                    => 'MessageContent::Venue',
       'messageContact'                                  => 'MessageContent::Contact',
       'messageAnimatedEmoji'                            => 'MessageContent::AnimatedEmoji',
+      'messageForumTopicIsClosedToggled'                => 'MessageContent::ForumTopicIsClosedToggled',
       'messageDice'                                     => 'MessageContent::Dice',
       'messageGame'                                     => 'MessageContent::Game',
       'messagePoll'                                     => 'MessageContent::Poll',
@@ -480,6 +482,8 @@ module TD::Types
       'textEntityTypeMediaTimestamp'                    => 'TextEntityType::MediaTimestamp',
       'textEntityTypeBlockQuote'                        => 'TextEntityType::BlockQuote',
       'textEntityTypeCustomEmoji'                       => 'TextEntityType::CustomEmoji',
+      'textEntityTypeExpandableBlockQuote'              => 'TextEntityType::ExpandableBlockQuote',
+      'textEntityTypeSpoiler'                           => 'TextEntityType::Spoiler',
       'textQuote'                                       => 'TextQuote',
       'inputThumbnail'                                  => 'InputThumbnail',
       'MessageSchedulingState'                          => 'MessageSchedulingState',
@@ -509,6 +513,10 @@ module TD::Types
       'inputMessageForwarded'                           => 'InputMessageContent::Forwarded',
       'SearchMessagesFilter'                            => 'SearchMessagesFilter',
       'searchMessagesFilterEmpty'                       => 'SearchMessagesFilter::Empty',
+      'SavedMessagesTopicType'                          => 'SavedMessagesTopicType',
+      'savedMessagesTopicTypeAuthorHidden'              => 'SavedMessagesTopicType::AuthorHidden',
+      'savedMessagesTopicTypeMyNotes'                   => 'SavedMessagesTopicType::MyNotes',
+      'savedMessagesTopicTypeSavedFromChat'             => 'savedMessagesTopicType::SavedFromChat',
       'searchMessagesFilterAnimation'                   => 'SearchMessagesFilter::Animation',
       'searchMessagesFilterAudio'                       => 'SearchMessagesFilter::Audio',
       'searchMessagesFilterDocument'                    => 'SearchMessagesFilter::Document',
@@ -558,6 +566,10 @@ module TD::Types
       'stickerFormatTgs'                                => 'StickerFormat::Tgs',
       'stickerFormatWebm'                               => 'StickerFormat::Webm',
       'stickerFormatWebp'                               => 'StickerFormat::Webp',
+      'StickerFullType'                                 => 'StickerFullType',
+      'stickerFullTypeCustomEmoji'                      => 'StickerFullType::CustomEmoji',
+      'stickerFullTypeMask'                             => 'StickerFullType::Mask',
+      'stickerFullTypeRegular'                          => 'StickerFullType::Regular',
       'CallDiscardReason'                               => 'CallDiscardReason',
       'callDiscardReasonEmpty'                          => 'CallDiscardReason::Empty',
       'callDiscardReasonMissed'                         => 'CallDiscardReason::Missed',
@@ -850,6 +862,7 @@ module TD::Types
       'internalLinkTypeUnknownDeepLink'                 => 'InternalLinkType::UnknownDeepLink',
       'internalLinkTypeUnsupportedProxy'                => 'InternalLinkType::UnsupportedProxy',
       'internalLinkTypeVideoChat'                       => 'InternalLinkType::VideoChat',
+      'internalLinkTypeInvoice'                         => 'InternalLinkType::Invoice',
       'messageLink'                                     => 'MessageLink',
       'messageLinkInfo'                                 => 'MessageLinkInfo',
       'filePart'                                        => 'FilePart',
@@ -1077,8 +1090,10 @@ module TD::Types
       'attachmentMenuBot'                               => 'AttachmentMenuBot',
       'attachmentMenuBotColor'                          => 'AttachmentMenuBotColor',
       'reactionTypeEmoji'                               => 'ReactionType::Emoji',
+      'reactionTypeCustomEmoji'                         => 'ReactionType::CustomEmoji',
       'profileAccentColor'                              => 'ProfileAccentColor',
       'profileAccentColors'                             => 'ProfileAccentColors',
+      'premiumPaymentOption'                            => 'PremiumPaymentOption',
       'emojiStatus'                                     => 'EmojiStatus',
       'ReactionNotificationSource'                      => 'ReactionNotificationSource',
       'reactionNotificationSourceAll'                   => 'ReactionNotificationSource::All',
@@ -1087,9 +1102,14 @@ module TD::Types
       'reactionNotificationSettings'                    => 'ReactionNotificationSettings',
       'businessBotManageBar'                            => 'BusinessBotManageBar',
       'blockList'                                       => 'BlockList',
+      'blockListMain'                                   => 'BlockList::Main',
+      'blockListStories'                                => 'BlockList::Stories',
       'StoryList'                                       => 'StoryList',
       'storyListArchive'                                => 'StoryList::Archive',
-      'storyListMain'                                   => 'StoryList::Main'
+      'storyListMain'                                   => 'StoryList::Main',
+      'birthdate'                                       => 'Birthdate',
+      'botMenuButton'                                   => 'botMenuButton',
+      'botInfo'                                         => 'botInfo'
   }.freeze
   
   module_function
@@ -1145,6 +1165,7 @@ module TD::Types
     background_fill
     background_type
     backgrounds
+    birthdate
     bank_card_action_open_url
     bank_card_info
     base
@@ -1153,6 +1174,8 @@ module TD::Types
     bot_command
     bot_command_scope
     bot_commands
+    bot_menu_button
+    bot_info
     block_list
     business_bot_manage_bar
     call
@@ -1214,6 +1237,7 @@ module TD::Types
     chat_statistics_message_sender_info
     chat_theme
     chat_type
+    chat_administrator_rights
     chats
     chats_nearby
     check_chat_username_result
@@ -1374,6 +1398,7 @@ module TD::Types
     proxies
     proxy
     proxy_type
+    premium_payment_option
     public_chat_type
     push_message_content
     push_receiver_id
@@ -1408,6 +1433,7 @@ module TD::Types
     storage_statistics_by_chat
     storage_statistics_by_file_type
     storage_statistics_fast
+    saved_messages_topic_type
     suggested_action
     supergroup
     supergroup_full_info
@@ -1455,6 +1481,7 @@ module TD::Types
     message_reaction
     message_reactions
     story_list
+    sticker_full_type
     reaction_notification_source
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"

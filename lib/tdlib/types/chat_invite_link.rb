@@ -6,7 +6,7 @@ module TD::Types
   # @attr creator_user_id [Integer] User identifier of an administrator created the link.
   # @attr date [Integer] Point in time (Unix timestamp) when the link was created.
   # @attr edit_date [Integer] Point in time (Unix timestamp) when the link was last edited; 0 if never or unknown.
-  # @attr expire_date [Integer] Point in time (Unix timestamp) when the link will expire; 0 if never.
+  # @attr expiration_date [Integer] Point in time (Unix timestamp) when the link will expire; 0 if never.
   # @attr member_limit [Integer] The maximum number of members, which can join the chat using the link simultaneously;
   #   0 if not limited.
   #   Always 0 if the link requires approval.
@@ -24,7 +24,7 @@ module TD::Types
     attribute :creator_user_id, TD::Types::Coercible::Integer
     attribute :date, TD::Types::Coercible::Integer
     attribute :edit_date, TD::Types::Coercible::Integer
-    attribute :expire_date, TD::Types::Coercible::Integer
+    attribute :expiration_date, TD::Types::Coercible::Integer
     attribute :member_limit, TD::Types::Coercible::Integer
     attribute :member_count, TD::Types::Coercible::Integer
     attribute :pending_join_request_count, TD::Types::Coercible::Integer

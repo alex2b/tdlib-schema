@@ -26,6 +26,7 @@ module TD::Types
       unknown_deep_link
       unsupported_proxy
       video_chat
+      invoice
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/internal_link_type/#{type}"
     end
