@@ -509,14 +509,19 @@ module TD::Types
       'inputMessageDice'                                => 'InputMessageContent::Dice',
       'inputMessageGame'                                => 'InputMessageContent::Game',
       'inputMessageInvoice'                             => 'InputMessageContent::Invoice',
+      'InputMessageReplyTo'                             => 'InputMessageReplyTo',
+      'inputMessageReplyToExternalMessage'              => 'InputMessageReplyTo::ExternalMessage',
+      'inputMessageReplyToMessage'                      => 'InputMessageReplyTo::Message',
+      'inputMessageReplyToStory'                        => 'InputMessageReplyTo::Story',
       'inputMessagePoll'                                => 'InputMessageContent::Poll',
       'inputMessageForwarded'                           => 'InputMessageContent::Forwarded',
       'SearchMessagesFilter'                            => 'SearchMessagesFilter',
       'searchMessagesFilterEmpty'                       => 'SearchMessagesFilter::Empty',
-      'SavedMessagesTopicType'                          => 'SavedMessagesTopicType',
+      'savedMessagesTopic'                              => 'SavedMessagesTopic',
+      'savedMessagesTopicType'                          => 'SavedMessagesTopicType',
       'savedMessagesTopicTypeAuthorHidden'              => 'SavedMessagesTopicType::AuthorHidden',
       'savedMessagesTopicTypeMyNotes'                   => 'SavedMessagesTopicType::MyNotes',
-      'savedMessagesTopicTypeSavedFromChat'             => 'savedMessagesTopicType::SavedFromChat',
+      'savedMessagesTopicTypeSavedFromChat'             => 'SavedMessagesTopicType::SavedFromChat',
       'searchMessagesFilterAnimation'                   => 'SearchMessagesFilter::Animation',
       'searchMessagesFilterAudio'                       => 'SearchMessagesFilter::Audio',
       'searchMessagesFilterDocument'                    => 'SearchMessagesFilter::Document',
@@ -724,6 +729,7 @@ module TD::Types
       'InputBackground'                                 => 'InputBackground',
       'inputBackgroundLocal'                            => 'InputBackground::Local',
       'inputBackgroundRemote'                           => 'InputBackground::Remote',
+      'InputTextQuote'                                  => 'InputTextQuote',
       'themeSettings'                                   => 'ThemeSettings',
       'chatTheme'                                       => 'ChatTheme',
       'hashtags'                                        => 'Hashtags',
@@ -1078,6 +1084,7 @@ module TD::Types
       'updateProfileAccentColors'                       => 'Update::ProfileAccentColors',
       'updateReactionNotificationSettings'              => 'Update::ReactionNotificationSettings',
       'updateChatAvailableReactions'                    => 'Update::ChatAvailableReactions',
+      'updateSavedMessagesTopic'                        => 'Update::SavedMessagesTopic',
       'updates'                                         => 'Updates',
       'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
@@ -1304,7 +1311,9 @@ module TD::Types
     input_personal_document
     input_sticker
     input_thumbnail
+    input_message_reply_to
     internal_link_type
+    input_text_quote
     invoice
     json_object_member
     json_value
@@ -1433,6 +1442,7 @@ module TD::Types
     storage_statistics_by_chat
     storage_statistics_by_file_type
     storage_statistics_fast
+    saved_messages_topic
     saved_messages_topic_type
     suggested_action
     supergroup

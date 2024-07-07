@@ -109,6 +109,7 @@ module TD::Types
       accent_colors
       profile_accent_colors
       reaction_notification_settings
+      saved_messages_topic
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end
