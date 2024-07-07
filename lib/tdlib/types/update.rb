@@ -36,6 +36,7 @@ module TD::Types
       chat_read_outbox
       chat_unread_mention_count
       chat_notification_settings
+      chat_available_reactions
       scope_notification_settings
       chat_message_ttl_setting
       chat_folders
@@ -107,6 +108,7 @@ module TD::Types
       default_reaction_type
       accent_colors
       profile_accent_colors
+      reaction_notification_settings
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

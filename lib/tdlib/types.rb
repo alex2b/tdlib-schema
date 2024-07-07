@@ -555,6 +555,9 @@ module TD::Types
       'stickerSetInfo'                                  => 'StickerSetInfo',
       'stickerSets'                                     => 'StickerSets',
       'StickerFormat'                                   => 'StickerFormat',
+      'stickerFormatTgs'                                => 'StickerFormat::Tgs',
+      'stickerFormatWebm'                               => 'StickerFormat::Webm',
+      'stickerFormatWebp'                               => 'StickerFormat::Webp',
       'CallDiscardReason'                               => 'CallDiscardReason',
       'callDiscardReasonEmpty'                          => 'CallDiscardReason::Empty',
       'callDiscardReasonMissed'                         => 'CallDiscardReason::Missed',
@@ -1060,6 +1063,8 @@ module TD::Types
       'updateDefaultReactionType'                       => 'Update::DefaultReactionType',
       'updateAccentColors'                              => 'Update::AccentColors',
       'updateProfileAccentColors'                       => 'Update::ProfileAccentColors',
+      'updateReactionNotificationSettings'              => 'Update::ReactionNotificationSettings',
+      'updateChatAvailableReactions'                    => 'Update::ChatAvailableReactions',
       'updates'                                         => 'Updates',
       'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
@@ -1079,8 +1084,12 @@ module TD::Types
       'reactionNotificationSourceAll'                   => 'ReactionNotificationSource::All',
       'reactionNotificationSourceContacts'              => 'ReactionNotificationSource::Contacts',
       'reactionNotificationSourceNone'                  => 'ReactionNotificationSource::None',
+      'reactionNotificationSettings'                    => 'ReactionNotificationSettings',
       'businessBotManageBar'                            => 'BusinessBotManageBar',
-      'blockList'                                       => 'BlockList'
+      'blockList'                                       => 'BlockList',
+      'StoryList'                                       => 'StoryList',
+      'storyListArchive'                                => 'StoryList::Archive',
+      'storyListMain'                                   => 'StoryList::Main'
   }.freeze
   
   module_function
@@ -1374,6 +1383,7 @@ module TD::Types
     remote_file
     reply_markup
     reset_password_result
+    reaction_notification_settings
     rich_text
     saved_credentials
     scope_notification_settings
@@ -1389,6 +1399,7 @@ module TD::Types
     statistical_graph
     statistical_value
     sticker
+    sticker_format
     sticker_set
     sticker_set_info
     sticker_sets
@@ -1443,6 +1454,8 @@ module TD::Types
     reaction_type
     message_reaction
     message_reactions
+    story_list
+    reaction_notification_source
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end
