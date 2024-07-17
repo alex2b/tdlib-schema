@@ -6,7 +6,7 @@ module TD::Types
   # @attr :needs_repainting [Boolean] True, if the sticker must be repainted to a text color in messages,
   #   the color of the Telegram Premium badge in emoji status, white color on chat photos,
   #   or another appropriate color in other places.
-  class StickerFullType::Emoji < StickerFullType
+  class StickerFullType::CustomEmoji < StickerFullType
     attrbute :custom_emoji_id, TD::Types::Coercible::Integer
     attrbute :needs_repainting, TD::Types::Bool
   end

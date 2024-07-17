@@ -3435,6 +3435,9 @@ module TD::ClientMethods
   #
   # @param text [TD::Types::String] The text to parse.
   # @param parse_mode [TD::Types::TextParseMode] Text parse mode.
+  # Example: parse_text_entities(
+    #           text: "This is normal text - <b>and this is bold text</b>",
+    #           parse_mode: TD::Types::TextParseMode::HTML.new)
   # @return [TD::Types::FormattedText]
   def parse_text_entities(text:, parse_mode:)
     broadcast('@type'      => 'parseTextEntities',

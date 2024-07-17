@@ -1,7 +1,7 @@
 module TD::Types
   class StickerFullType < Base
     %w[
-      emoji
+      custom_emoji
       mask
       regular
     ].each do |type|

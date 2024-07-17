@@ -5,6 +5,7 @@ module TD::Types
       wallpaper
       pattern
       fill
+      chat_theme
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/background_type/#{type}"
     end

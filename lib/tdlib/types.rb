@@ -724,6 +724,7 @@ module TD::Types
       'backgroundTypeWallpaper'                         => 'BackgroundType::Wallpaper',
       'backgroundTypePattern'                           => 'BackgroundType::Pattern',
       'backgroundTypeFill'                              => 'BackgroundType::Fill',
+      'backgroundTypeChatTheme'                         => 'BackgroundType::ChatTheme',
       'background'                                      => 'Background',
       'backgrounds'                                     => 'Backgrounds',
       'InputBackground'                                 => 'InputBackground',
