@@ -1498,7 +1498,7 @@ module TD::Types
     message_reactions
     story_list
     sticker_full_type
-    reaction_notification_source,
+    reaction_notification_source
     forum_topic_icon
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
