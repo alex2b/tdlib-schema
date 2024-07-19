@@ -2,7 +2,7 @@ module TD::Types
   # Describes a poll.
   #
   # @attr id [Integer] Unique poll identifier.
-  # @attr question [TD::Types::String] Poll question; 1-300 characters.
+  # @attr question [TD::Types::FormattedText] Poll question; 1-300 characters.
   # @attr options [Array<TD::Types::PollOption>] List of poll answer options.
   # @attr total_voter_count [Integer] Total number of voters, participating in the poll.
   # @attr recent_voter_user_ids [Array<Integer>] User identifiers of recent voters, if the poll is non-anonymous.
@@ -13,7 +13,7 @@ module TD::Types
   # @attr is_closed [Boolean] True, if the poll is closed.
   class Poll < Base
     attribute :id, TD::Types::Coercible::Integer
-    attribute :question, TD::Types::String
+    attribute :question, TD::Types::FormattedText
     attribute :options, TD::Types::Array.of(TD::Types::PollOption)
     attribute :total_voter_count, TD::Types::Coercible::Integer
     attribute :recent_voter_user_ids, TD::Types::Array.of(TD::Types::Coercible::Integer)

@@ -175,6 +175,7 @@ module TD::Types
       'messagePositions'                                => 'MessagePositions',
       'messageCalendarDay'                              => 'MessageCalendarDay',
       'messageCalendar'                                 => 'MessageCalendar',
+      'messageChatBoost'                                => 'MessageChatBoost',
       'sponsoredMessage'                                => 'SponsoredMessage',
       'sponsoredMessages'                               => 'SponsoredMessages',
       'NotificationSettingsScope'                       => 'NotificationSettingsScope',
@@ -1086,6 +1087,8 @@ module TD::Types
       'updateReactionNotificationSettings'              => 'Update::ReactionNotificationSettings',
       'updateChatAvailableReactions'                    => 'Update::ChatAvailableReactions',
       'updateSavedMessagesTopic'                        => 'Update::SavedMessagesTopic',
+      'updateChatViewAsTopics'                          => 'Update::ChatViewAsTopics',
+      'updateChatMessageAutoDeleteTime'                 => 'Update::ChatMessageAutoDeleteTime',
       'updates'                                         => 'Updates',
       'usernames'                                       => 'Usernames',
       'LogStream'                                       => 'LogStream',
@@ -1117,7 +1120,8 @@ module TD::Types
       'storyListMain'                                   => 'StoryList::Main',
       'birthdate'                                       => 'Birthdate',
       'botMenuButton'                                   => 'botMenuButton',
-      'botInfo'                                         => 'botInfo'
+      'botInfo'                                         => 'botInfo',
+      'forumTopicIcon'                                  => 'ForumTopicIcon'
   }.freeze
   
   module_function
@@ -1358,6 +1362,7 @@ module TD::Types
     messages
     message_origin
     message_reply_to
+    message_chat_boost
     minithumbnail
     network_statistics
     network_statistics_entry
@@ -1493,7 +1498,8 @@ module TD::Types
     message_reactions
     story_list
     sticker_full_type
-    reaction_notification_source
+    reaction_notification_source,
+    forum_topic_icon
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end

@@ -7,7 +7,7 @@ module TD::Types
   #   the color of the Telegram Premium badge in emoji status, white color on chat photos,
   #   or another appropriate color in other places.
   class StickerFullType::CustomEmoji < StickerFullType
-    attrbute :custom_emoji_id, TD::Types::Coercible::Integer
-    attrbute :needs_repainting, TD::Types::Bool
+    attribute :custom_emoji_id, TD::Types::Coercible::Integer
+    attribute :needs_repainting, TD::Types::Bool
   end
 end

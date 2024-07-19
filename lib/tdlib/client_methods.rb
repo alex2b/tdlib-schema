@@ -5555,4 +5555,18 @@ module TD::ClientMethods
               'offset'        => offset,
               'data'          => data)
   end
+  
+  # Adds a file from a message to the list of file downloads.
+  #
+  # @param priority [Integer] Priority of the download (1-32).
+  #   The higher the priority, the earlier the file will be downloaded.
+  #   If the priorities of two files are equal, then the last one for which downloadFile was called will be downloaded
+  #   first.
+  def add_file_to_downloads(file_id:, chat_id:, message_id:, priority:)
+    broadcast('@type'      => 'addFileToDownloads',
+              'file_id'    => file_id,
+              'chat_id'    => chat_id,
+              'message_id' => message_id,
+              'priority'   => priority)
+  end
 end

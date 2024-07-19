@@ -110,6 +110,8 @@ module TD::Types
       profile_accent_colors
       reaction_notification_settings
       saved_messages_topic
+      chat_view_as_topics
+      chat_message_auto_delete_time
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/update/#{type}"
     end

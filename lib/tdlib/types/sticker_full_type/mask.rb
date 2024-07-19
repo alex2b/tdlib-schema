@@ -3,6 +3,6 @@ module TD::Types
   #
   # @attr :mask_position Position where the mask is placed; may be null.
   class StickerFullType::Mask < StickerFullType
-    attrbute :mask_position, TD::Types::MaskPosition.optional.default(nil)
+    attribute :mask_position, TD::Types::MaskPosition.optional.default(nil)
   end
 end

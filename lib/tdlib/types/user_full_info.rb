@@ -27,7 +27,7 @@ module TD::Types
     attribute :personal_photo, TD::Types::ChatPhoto.optional.default(nil)
     attribute :photo, TD::Types::ChatPhoto.optional.default(nil)
     attribute :public_photo, TD::Types::ChatPhoto.optional.default(nil)
-    attribute :block_list, TD::Types::BlockListo.optional.default(nil)
+    attribute :block_list, TD::Types::BlockList.optional.default(nil)
     attribute :can_be_called, TD::Types::Bool
     attribute :supports_video_calls, TD::Types::Bool
     attribute :has_private_calls, TD::Types::Bool
