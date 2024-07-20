@@ -1121,7 +1121,8 @@ module TD::Types
       'birthdate'                                       => 'Birthdate',
       'botMenuButton'                                   => 'botMenuButton',
       'botInfo'                                         => 'botInfo',
-      'forumTopicIcon'                                  => 'ForumTopicIcon'
+      'forumTopicIcon'                                  => 'ForumTopicIcon',
+      'forumTopicInfo'                                  => 'ForumTopicInfo'
   }.freeze
   
   module_function
@@ -1500,6 +1501,7 @@ module TD::Types
     sticker_full_type
     reaction_notification_source
     forum_topic_icon
+    forum_topic_info
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end

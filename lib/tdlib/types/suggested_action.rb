@@ -8,6 +8,7 @@ module TD::Types
       see_ticks_hint
       convert_to_broadcast_group
       set_password
+      subscribe_to_annual_premium
     ].each do |type|
       autoload TD::Types.camelize(type), "tdlib/types/suggested_action/#{type}"
     end
