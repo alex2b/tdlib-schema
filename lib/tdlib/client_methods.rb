@@ -1,3 +1,4 @@
+# https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1_function.html
 # This is a generated module from current TDLib scheme
 # It contains all available TDLib methods
 module TD::ClientMethods
@@ -1131,9 +1132,9 @@ module TD::ClientMethods
   # @param offset [Integer] The starting position from which the file needs to be downloaded.
   # @param limit [Integer] Number of bytes which need to be downloaded starting from the "offset" position before the
   #   download will be automatically canceled; use 0 to download without a limit.
-  # @param synchronous [Boolean] If false, this request returns file state just after the download has been started.
-  #   If true, this request returns file state only after the download has succeeded, has failed, has been canceled or
-  #   a new downloadFile request with different offset/limit parameters was sent.
+  # @param synchronous [Boolean] Pass true to return response only after the file download has succeeded, has failed,
+  #   has been canceled, or a new downloadFile request with different offset/limit parameters was sent; pass false to return
+  #   file state immediately, just after the download has been started.
   # @return [TD::Types::File]
   def download_file(file_id:, priority:, offset:, limit:, synchronous:)
     broadcast('@type'       => 'downloadFile',
@@ -2972,17 +2973,24 @@ module TD::ClientMethods
               'set_id' => set_id)
   end
   
-  # Returns stickers from the installed sticker sets that correspond to a given emoji.
-  # If the emoji is non-empty, favorite and recently used stickers may also be returned.
+  # Returns stickers from the installed sticker sets that correspond to any of the given emoji
+  # or can be found by sticker-specific keywords.
+  # If the query is non-empty, then favorite, recently used or trending stickers may also be returned.
   #
-  # @param emoji [TD::Types::String] String representation of emoji.
+  # @param sticker_type [TD::Types::StickerType] Type of the stickers to return.
+  # @param query [TD::Types::String] Search query; a space-separated list of emojis or a keyword prefix.
   #   If empty, returns all known installed stickers.
   # @param limit [Integer] The maximum number of stickers to be returned.
+  # @param chat_id [Integer] Chat identifier for which to return stickers.
+  #   Available custom emoji stickers may be different for different chats.
   # @return [TD::Types::Stickers]
-  def get_stickers(emoji:, limit:)
+
+  def get_stickers(sticker_type:, query:, limit:, chat_id:)
     broadcast('@type' => 'getStickers',
-              'emoji' => emoji,
-              'limit' => limit)
+              'sticker_type' => sticker_type,
+              'query' => query,
+              'limit' => limit,
+              'chat_id' => chat_id)
   end
   
   # Returns storage usage statistics.
@@ -5568,5 +5576,16 @@ module TD::ClientMethods
               'chat_id'    => chat_id,
               'message_id' => message_id,
               'priority'   => priority)
+  end
+
+  # Returns the list of custom emoji stickers by their identifiers. Stickers are returned in arbitrary order.
+  # Only found stickers are returned.
+  #
+  # @attr custom_emoji_ids [Array] Identifiers of custom emoji stickers.
+  #   At most 200 custom emoji stickers can be received simultaneously.
+  # @return [TD::Types::Stickers]
+  def get_custom_emoji_stickers(custom_emoji_ids:)
+    broadcast('@type'            => 'getCustomEmojiStickers',
+              'custom_emoji_ids' => custom_emoji_ids)
   end
 end

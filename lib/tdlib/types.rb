@@ -572,6 +572,10 @@ module TD::Types
       'stickerFormatTgs'                                => 'StickerFormat::Tgs',
       'stickerFormatWebm'                               => 'StickerFormat::Webm',
       'stickerFormatWebp'                               => 'StickerFormat::Webp',
+      'StickerType'                                     => 'StickerType',
+      'stickerTypeCustomEmoji'                          => 'StickerType::CustomEmoji',
+      'stickerTypeMask'                                 => 'StickerType::Mask',
+      'stickerTypeRegular'                              => 'StickerType::Regular',
       'StickerFullType'                                 => 'StickerFullType',
       'stickerFullTypeCustomEmoji'                      => 'StickerFullType::CustomEmoji',
       'stickerFullTypeMask'                             => 'StickerFullType::Mask',
@@ -1122,7 +1126,8 @@ module TD::Types
       'botMenuButton'                                   => 'botMenuButton',
       'botInfo'                                         => 'botInfo',
       'forumTopicIcon'                                  => 'ForumTopicIcon',
-      'forumTopicInfo'                                  => 'ForumTopicInfo'
+      'forumTopicInfo'                                  => 'ForumTopicInfo',
+      'trendingStickerSets'                             => 'TrendingStickerSets'
   }.freeze
   
   module_function
@@ -1445,6 +1450,7 @@ module TD::Types
     sticker_set_info
     sticker_sets
     stickers
+    sticker_type
     storage_statistics
     storage_statistics_by_chat
     storage_statistics_by_file_type
@@ -1502,6 +1508,7 @@ module TD::Types
     reaction_notification_source
     forum_topic_icon
     forum_topic_info
+    trending_sticker_sets
   ].each do |type|
     autoload camelize(type), "tdlib/types/#{type}"
   end

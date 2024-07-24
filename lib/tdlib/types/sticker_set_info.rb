@@ -12,9 +12,8 @@ module TD::Types
   # @attr is_installed [Boolean] True, if the sticker set has been installed by the current user.
   # @attr is_archived [Boolean] True, if the sticker set has been archived.
   #   A sticker set can't be installed and archived simultaneously.
-  # @attr is_official [Boolean] True, if the sticker set is official.
-  # @attr is_animated [Boolean] True, is the stickers in the set are animated.
-  # @attr is_masks [Boolean] True, if the stickers in the set are masks.
+  # @attr sticker_type [TD::Types::StickerType] Type of the stickers in the set.
+  # @attr is_allowed_as_chat_emoji_status Boolean] True, if stickers in the sticker set are custom emoji that can be used as chat emoji status; for custom emoji sticker sets only.
   # @attr is_viewed [Boolean] True for already viewed trending sticker sets.
   # @attr size [Integer] Total number of stickers in the set.
   # @attr covers [Array<TD::Types::Sticker>] Up to the first 5 stickers from the set, depending on the context.
@@ -28,8 +27,8 @@ module TD::Types
     attribute :is_installed, TD::Types::Bool
     attribute :is_archived, TD::Types::Bool
     attribute :is_official, TD::Types::Bool
-    attribute :is_animated, TD::Types::Bool
-    attribute :is_masks, TD::Types::Bool
+    attribute :sticker_type, TD::Types::StickerType
+    attribute :is_allowed_as_chat_emoji_status, TD::Types::Bool
     attribute :is_viewed, TD::Types::Bool
     attribute :size, TD::Types::Coercible::Integer
     attribute :covers, TD::Types::Array.of(TD::Types::Sticker)

@@ -16,7 +16,7 @@ module TD::Types
     attribute :question, TD::Types::FormattedText
     attribute :options, TD::Types::Array.of(TD::Types::PollOption)
     attribute :total_voter_count, TD::Types::Coercible::Integer
-    attribute :recent_voter_user_ids, TD::Types::Array.of(TD::Types::Coercible::Integer)
+    attribute :recent_voter_ids, TD::Types::Array.of(TD::Types::MessageSender)
     attribute :is_anonymous, TD::Types::Bool
     attribute :type, TD::Types::PollType
     attribute :open_period, TD::Types::Coercible::Integer

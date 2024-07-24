@@ -14,7 +14,7 @@ module TD::Types
   class ForumTopicInfo < Base
     attribute :message_thread_id, TD::Types::Coercible::Integer
     attribute :name, TD::Types::String
-    attribute :icon, TD::ForumTopicIcon
+    attribute :icon, TD::Types::ForumTopicIcon
     attribute :creation_date, TD::Types::Coercible::Integer
     attribute :creator_id, TD::Types::MessageSender
     attribute :is_general, TD::Types::Bool
